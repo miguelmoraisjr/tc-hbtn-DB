@@ -22,5 +22,5 @@ public class PrintJDBCDrivers {
         System.out.println("Driver Minor Version: " + minorVersion);
         System.out.println("----------------------------------------");
     }
-    
+
 }
