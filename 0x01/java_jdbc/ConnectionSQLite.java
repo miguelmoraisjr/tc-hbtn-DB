@@ -1,13 +1,15 @@
 import java.sql.Connection;
+import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Enumeration;
 
 public class ConnectionSQLite {
 
     public static void initConnection() {
         Connection conn = null;
         try {
-            String url = "sqlite_database_2022.db";
+            String url = "jdbc:sqlite:sqlite_database_2022.db";
             conn = DriverManager.getConnection(url);
             System.out.println("Connection to SQLite has been established.");
         } catch (SQLException e) {
