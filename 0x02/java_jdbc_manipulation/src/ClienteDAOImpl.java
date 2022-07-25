@@ -73,9 +73,7 @@ public class ClienteDAOImpl implements ClienteDAO{
                         , resultSet.getInt("idade"), resultSet.getString("cpf"), resultSet.getString("rg"));
                 clienteList.add(cliente);
             }
-            for (Cliente client : clienteList){
-                System.out.println(client);
-            }
+            System.out.println(clienteList);
 
         } catch (SQLException e) {
             System.err.println("Não foi possível trazer os clientes da tabela");
