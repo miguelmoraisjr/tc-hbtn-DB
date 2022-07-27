@@ -39,7 +39,7 @@ public class AdministrativoApp {
         produtoModel.update(p1);
 
         // 5) Deletar produto na base de dados
-        produtoModel.delete(p1); 
+        produtoModel.delete(p1);
 
         PessoaModel pessoaModel = new PessoaModel();
 
