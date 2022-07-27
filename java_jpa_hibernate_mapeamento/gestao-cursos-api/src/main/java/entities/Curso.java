@@ -25,11 +25,11 @@ public class Curso {
             inverseJoinColumns = @JoinColumn(name = "curso_id", referencedColumnName = "id"))
     private Set<Aluno> alunos = new HashSet<>();
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "professor_id")
     private Professor professor;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "material_id", referencedColumnName = "id")
     private MaterialCurso material;
 

@@ -22,7 +22,7 @@ public class Professor {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "professor", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "professor")
     private Set<Curso> cursos = new HashSet<>();
 
     public Professor(){}

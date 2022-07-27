@@ -1,9 +1,8 @@
 package demo;
 
-import entities.Aluno;
-import entities.Endereco;
-import entities.Telefone;
+import entities.*;
 import models.AlunoModel;
+import models.CursoModel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -56,24 +55,63 @@ public class GestaoCursosMain {
         // Criar Aluno
         alunoModel.create(al1);
 
-        // Atualizar Aluno
+     /*   // Atualizar Aluno
         al1.setEmail("miguelmorais@gmail.com");
         al1.setMatricula("22344566");
         al1.setNomeCompleto("Miguel Augusto Morais");
         alunoModel.update(al1);
 
-        // Buscar Aluno
+       // Buscar Aluno
         Aluno al2 = alunoModel.findById(al1);
 
         // Buscar todos os alunos
         List<Aluno> alunos = alunoModel.findAll();
 
         // Deletar aluno
-        alunoModel.delete(al1);
+        alunoModel.delete(al1); */
 
-        // Set de Aluno
-        Set<Aluno> aluno2 = new HashSet<>();
-        alunos.add(al1);
+        // -------------------
+
+        CursoModel cursoModel = new CursoModel();
+
+        // Professor
+        Professor professor = new Professor();
+        professor.setNomeCompleto("Oswaldo Marques");
+        professor.setMatricula("1223455");
+        professor.setEmail("oswaldo@gmail.com");
+
+        // MaterialCurso
+        MaterialCurso material = new MaterialCurso();
+        material.setUrl("UrldoMateiral");
+
+        // Curso
+        Curso cr1 = new Curso();
+        cr1.setNome("Frances");
+        cr1.setSigla("FR");
+        cr1.setMaterial(material);
+        cr1.getAlunos().add(al1);
+        cr1.setProfessor(professor);
+        material.setCurso(cr1);
+        professor.getCursos().add(cr1);
+        al1.getCursos().add(cr1);
+
+        // Criar Curso
+        cursoModel.create(cr1);
+
+        // Atualizar curso
+        cr1.setSigla("PT");
+        cr1.setNome("Portugues");
+        cursoModel.update(cr1);
+
+        // Encotrar curso
+        Curso cr2 = cursoModel.findById(cr1);
+
+        // Encontrar cursos
+        List<Curso> cursos = cursoModel.findAll();
+
+        // Deletar curso
+        cursoModel.delete(cr1);
+
 
 
 
